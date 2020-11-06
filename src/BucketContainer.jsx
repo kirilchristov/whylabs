@@ -14,8 +14,8 @@ const BucketContainer = (props) => {
           <div
             className={entry === nameOfTheLargest ? "largest" : entry}
             style={{
-              width: bucketSummed[entry],
-              height: 10,
+              width: bucketSummed[entry] * 5, //multiply by 5 just to make them look bigger
+              height: 15,
             }}
           ></div>
         </div>
