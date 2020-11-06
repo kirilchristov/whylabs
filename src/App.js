@@ -1,5 +1,5 @@
 import "./App.css";
-// import BucketContainer from "./BucketContainer";
+import BucketContainer from "./BucketContainer";
 
 const DATA_VALUES = [
   {
@@ -12,7 +12,7 @@ const DATA_VALUES = [
   {
     date: 1604440297970,
     typeNull: 16,
-    typeString: 100,
+    typeString: 10,
     typeNumeric: 3,
     typeBoolean: 10,
   },
@@ -20,13 +20,13 @@ const DATA_VALUES = [
     date: 1604440315789,
     typeNull: 15,
     typeString: 29,
-    typeNumeric: 4,
+    typeNumeric: 99,
     typeBoolean: 21,
   },
   {
     date: 1604440330496,
     typeNull: 44,
-    typeString: 230,
+    typeString: 30,
     typeNumeric: 3,
     typeBoolean: 0,
   },
@@ -57,7 +57,7 @@ for (let i = 0; i < DATA_VALUES.length; i++) {
   }
 }
 
-//this func gets the bucket and sum all values for a key, returning the sums for each jey
+//this func gets the bucket and sum all values for a key, returning the sums for each key
 const sumSameBuckets = (bucket) => {
   let typeNull = 0;
   let typeString = 0;
@@ -84,33 +84,6 @@ const findCss = (someObject) => {
     return someObject[a] > someObject[b] ? a : b;
   });
 };
-
-const BucketContainer = (props) => {
-  const bucketSummed = props.sumSameBuckets(props.bucket);
-  const nameOfTheLargest = props.findCss(bucketSummed);
-  const largestNumInBucket = bucketSummed[nameOfTheLargest];
-
-  const graphTitles = Object.keys(bucketSummed);
-
-  return (
-    <div className="bucket">
-    <h1>The largest in this bucket is {nameOfTheLargest} with value of {largestNumInBucket}</h1>
-      {graphTitles.map((entry) => (
-        <div className="singleGraph" key={entry}>
-          <p>{entry} : {bucketSummed[entry]}</p>
-          <div
-            className={entry === nameOfTheLargest ? "largest" : entry}
-            style={{
-              width: bucketSummed[entry],
-              height: 10,
-            }}
-          ></div>
-        </div>
-      ))}
-    </div>
-  );
-};
-
 
 //Pass the props of the buckets
 function App() {

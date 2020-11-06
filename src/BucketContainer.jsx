@@ -9,7 +9,7 @@ const BucketContainer = (props) => {
     <div className="bucket">
     <h1>The largest in this bucket is {nameOfTheLargest} with value of {largestNumInBucket}</h1>
       {graphTitles.map((entry) => (
-        <div className="singleGraph">
+        <div className="singleGraph" key={entry}>
           <p>{entry} : {bucketSummed[entry]}</p>
           <div
             className={entry === nameOfTheLargest ? "largest" : entry}
